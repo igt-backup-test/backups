@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Backup
         id: backup
-        uses: tpokki/github-actions/backup@v1
+        uses: tpokki/github-actions/backup@v2
         with:
           private_key: ${{ secrets.ORG_BACKUPS_KEY }}
           app_id: 155046
