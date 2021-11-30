@@ -1,6 +1,7 @@
 name: Backup
 on:
-  pull_request:
+  schedule:
+    - cron: '42 00 * * *'
 
 jobs:
   nightly-backup-job:
