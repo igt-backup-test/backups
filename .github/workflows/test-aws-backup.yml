@@ -1,0 +1,22 @@
+name: Backup
+on:
+  schedule:
+    - cron: '42 00 * * *'
+
+jobs:
+  nightly-backup-job:
+    name: Backup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Backup
+        id: backup
+        uses: tpokki/github-actions/backup@v2
+        with:
+          private_key: ${{ secrets.ORG_BACKUPS_KEY }}
+          app_id: 155046
+          installation_id: 20995951
+          aws_enabled: true
+          aws_s3: igt-github-backup-strategy
+          aws_region: us-east-1
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
